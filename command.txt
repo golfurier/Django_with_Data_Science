@@ -1,0 +1,32 @@
+pip freeze > requirements.txt
+pin install -r requirements.txt
+
+django-admin startproject dj_pd
+python manage.py migrate
+python manage.py createsuperuser
+
+python manage.py collectstatic
+
+python manage.py startapp products
+
+
+#git hub
+1. git status
+2. .git
+3. git init
+4. git status
+5. git remote add origin https://github.com/golfurier/Django_with_Data_Science.git
+6. git remote -v
+
+…or create a new repository on the command line
+echo "# Django_with_Data_Science" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/golfurier/Django_with_Data_Science.git
+git push -u origin main
+…or push an existing repository from the command line
+git remote add origin https://github.com/golfurier/Django_with_Data_Science.git
+git branch -M main
+git push -u origin main
