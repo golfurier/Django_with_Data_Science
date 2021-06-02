@@ -30,3 +30,13 @@ git push -u origin main
 git remote add origin https://github.com/golfurier/Django_with_Data_Science.git
 git branch -M main
 git push -u origin main
+
+upload : local --> github 
+git clone url
+git add
+git commit -m "message"
+git status
+git push
+
+download : github --> local
+git pull
