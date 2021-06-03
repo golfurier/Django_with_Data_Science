@@ -24,6 +24,6 @@ class Purchase(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return "Solled {} - {} items for {}".format(self.product.name, self.quantity, self.total_price)
+        return "Solled {} - {} items for {} , date - {}".format(self.product.name, self.quantity, self.total_price, self.date)
 
 

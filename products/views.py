@@ -17,11 +17,9 @@ def chart_select_view(request):
         product_df = pd.DataFrame(Product.objects.all().values())
         purchase_df = pd.DataFrame(Purchase.objects.all().values())
         product_df['product_id'] = product_df['id']
-    except:
-        product_df = None
-        purchase_df = None
+    
 
-    if purchase_df:
+    
         if purchase_df.shape[0] > 0:
             df = pd.merge(product_df, purchase_df, on='product_id').drop(['id_y', 'date_y'], axis=1).rename({'id_x': 'id', 'date_x': 'date'}, axis=1)
             price = df['price']
@@ -41,9 +39,13 @@ def chart_select_view(request):
                     graph = get_simple_plot(chart_type, x=df2['date'], y=df2['total_price'], data=df) 
                 else:
                     error_message = 'Please select a chart type to continue'
-    else:
-        error_message = 'No record in the database'
+        else:
+            error_message = 'No record in the database'
 
+    except:
+        product_df = None
+        purchase_df = None
+        error_message = 'No record in the database'
     
     context = {
         'graph': graph,
